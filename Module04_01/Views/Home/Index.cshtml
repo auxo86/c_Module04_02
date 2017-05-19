@@ -12,7 +12,7 @@
 </head>
 <body>
     <div>
-        @{ 
+        @{
             int m = 10;
             string s = "<h1>Demo</h1>";
             string[] data = { "item1", "item2", "item3" };
@@ -20,24 +20,24 @@
 
         <ul>
             @*<li>不用轉字串:@m</li>
-            <li>自動作HTMLEncode: @s</li>
-            <li>不作HTMLEncode:@Html.Raw(s)</li>*@
-            @*test for*@           
-                @for (int i = 0; i < data.Length; i++)
-                {
-                    <li>@data[i]</li>
-                }
-        </ul>
-        <ul>
-        @{ 
-            for (int i = 0; i < data.Length; i++)
+                <li>自動作HTMLEncode: @s</li>
+                <li>不作HTMLEncode:@Html.Raw(s)</li>*@
+            @*test for*@
+            @for (int i = 0; i < data.Length; i++)
             {
                 <li>@data[i]</li>
             }
-         }
         </ul>
         <ul>
-            @*test foreach*@
+            @{
+                for (int i = 0; i < data.Length; i++)
+                {
+                    <li>@data[i]</li>
+                }
+            }
+        </ul>
+        <ul>
+            @*test foreach, 因為不知道item的型別，所以用var*@
             @foreach (var item in data)
             {
                 <li>@item</li>
